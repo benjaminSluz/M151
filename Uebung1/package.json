@@ -1,0 +1,23 @@
+{
+    "name": "m133",
+    "version": "1.0.0",
+    "description": "In Node.js existieren Module, die die Funktionalität der Node.js-Plattform erweitern.\\\r Im nachfolgenden Beispiel benötigen wir das HTTP-Modul.\\\r Erster Webserver:",
+    "main": "server.mjs",
+    "scripts": {
+        "start": "node server.mjs"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kin982/M151.git",
+        "directory": "Uebung1"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/kin982/M151/issues"
+    },
+    "homepage": "https://github.com/kin982/M151/tree/main/Uebung1#readme",
+    "dependencies": {
+        "url": "^0.11.0"
+    }
+}
