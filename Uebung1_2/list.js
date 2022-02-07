@@ -1,3 +1,5 @@
+import { createForm } from "./form.js";
+
 export function getList(addresses) {
     return `<!DOCTYPE html>
   <html>
@@ -7,6 +9,7 @@ export function getList(addresses) {
     </head>
     <body>
       <h1>Adressbuch</h1>
+      ${createForm()}
       <table>
         <thead>
           <tr>
