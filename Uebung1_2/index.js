@@ -1,11 +1,12 @@
 import { createServer } from "http";
 import data from "./data.js";
 import { getList } from "./list.js";
-
+import { deleteAddress } from "./delete.js";
+data.addresses.deleteAddress = deleteAddress;
 createServer((request, response) => {
     const urlParts = request.url.split("/");
     if (urlParts.includes("delete")) {
-        data.addresses = deleteAddress(data.addresses, urlParts[2]);
+        data.addresses.deleteAddress(+urlParts[2]);
         redirect(response, "/");
     } else if (urlParts.includes("new")) {
         send(response, getForm());
