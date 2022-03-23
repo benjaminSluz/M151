@@ -15,7 +15,9 @@ export async function getAll() {
 }
 
 async function insert(movie) {
-    TODO;
+    const query = "INSERT into Movies(title,year) values (?,?)";
+    const [result] = await connection.query(query, [movie.title, movie.year]);
+    return result;
 }
 async function update(movie) {
     TODO;
@@ -27,5 +29,5 @@ export async function remove(id) {
     TODO;
 }
 export function save(movie) {
-    TODO;
+    insert(movie);
 }
