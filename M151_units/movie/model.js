@@ -19,8 +19,8 @@ export async function getAll() {
 }
 export async function get(id) {
     const collection = await connect();
-    const docs = await collection.findOne(id);
-    return docs.toArray();
+    const docs = await collection.findOne({ id: id });
+    return docs;
 }
 export async function remove(id) {
     //  TODO;
