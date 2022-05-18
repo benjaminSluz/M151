@@ -17,14 +17,25 @@ export async function getAll() {
 }
 
 async function insert(movie) {
-    const query = "INSERT INTO Movies (title, year) VALUES (?, ?)";
-    const [result] = await connection.query(query, [movie.title, movie.year]);
+    const query =
+        "INSERT INTO Movies (title, year,user, public) VALUES (?, ?,?,?)";
+    const [result] = await connection.query(query, [
+        movie.title,
+        movie.year,
+        movie.user,
+        movie.public,
+    ]);
     return {...movie, id: result.insertId };
 }
 
 async function update(movie) {
-    const query = "UPDATE Movies SET title = ?, year = ? WHERE id = ?";
-    await connection.query(query, [movie.title, movie.year, movie.id]);
+    const query = "UPDATE Movies SET title = ?, year = ?,public =? WHERE id = ?";
+    await connection.query(query, [
+        movie.title,
+        movie.year,
+        movie.public,
+        movie.id,
+    ]);
     return movie;
 }
 

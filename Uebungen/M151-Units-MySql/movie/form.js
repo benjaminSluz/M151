@@ -1,5 +1,5 @@
 export function render(movie) {
-  return `
+    return `
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -17,6 +17,11 @@ export function render(movie) {
       <div>
         <label for="id">Jahr:</label>
         <input type="text" id="year" name="year" value="${movie.year}" />
+      </div>
+      <div>
+        <label for="id">Public:</label>
+        <input type="checkbox" id="public" name="public" value="true"
+          ${movie.public[0] == 1 ? "checked" : ""} />
       </div>
       <div>
         <button type="submit">speichern</button>
