@@ -10,9 +10,9 @@ const connection = await mysql.createConnection({
 
 await connection.connect();
 
-export async function getAll() {
-    const query = "SELECT * FROM Movies";
-    const [data] = await connection.query(query);
+export async function getAll(userId) {
+    const query = "SELECT * FROM Movies Where public=1 or user=?";
+    const [data] = await connection.query(query, userId);
     return data;
 }
 
@@ -45,9 +45,9 @@ export async function get(id) {
     return data.pop();
 }
 
-export async function remove(id) {
-    const query = "DELETE FROM Movies WHERE id = ?";
-    await connection.query(query, [id]);
+export async function remove(userid, id) {
+    const query = "DELETE FROM Movies WHERE id = ? and (user=? or public=1)";
+    await connection.query(query, [id, userid]);
     return;
 }
 
